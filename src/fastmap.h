@@ -17,7 +17,10 @@ struct CustomMax
   double value;
   int index;
 };
+
+#ifdef OMP_VER_4
 #pragma omp declare reduction(maximum : struct CustomMax : omp_out = (omp_in.value>omp_out.value ? omp_in : omp_out))
+#endif
 
 static inline void find_most_distant(const int m, const int n, const double *const restrict x, double *restrict a, double *restrict b, double *restrict work)
 {
@@ -25,7 +28,9 @@ static inline void find_most_distant(const int m, const int n, const double *con
   max.value = 0.0;
   max.index = 0;
   
+#ifdef OMP_VER_4
   #pragma omp parallel for default(shared) reduction(maximum:max) if(m*n>OMP_MIN_SIZE)
+#endif
   for (int i=0; i<m; i++)
   {
     const int tid = omp_get_thread_num();
