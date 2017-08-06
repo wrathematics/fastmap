@@ -2,6 +2,5 @@
 
 export(cma)
 export(fastmap)
-export(fastmap.nthreads)
 useDynLib(fastmap,R_cma)
 useDynLib(fastmap,R_fastmap)
