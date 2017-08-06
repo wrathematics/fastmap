@@ -6,7 +6,7 @@
 * **Author:** Drew Schmidt
 
 
-Implements the FastMap and Coordinate Mapping algorithms.
+Implementations of the FastMap and Coordinate Mapping algorithms.
 
 See the paper *A Matrix Computation View of FastMap and RobustMap Dimension Reduction Algorithms* for more details.
 
