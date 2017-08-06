@@ -46,7 +46,7 @@ static inline void find_most_distant(const int m, const int n, const double *con
 #ifdef OMP_VER_4
   #pragma omp parallel for simd if(n>OMP_MIN_SIZE)
 #else
-  #pragma omp parallel for simd if(n>OMP_MIN_SIZE)
+  #pragma omp parallel for      if(n>OMP_MIN_SIZE)
 #endif
   for (int j=0; j<n; j++)
     a[j] = x[max.index + m*j];
